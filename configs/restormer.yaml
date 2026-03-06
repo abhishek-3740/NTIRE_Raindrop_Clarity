@@ -1,0 +1,27 @@
+DAY_ROOT: "data/day_train"
+NIGHT_ROOT: "data/night_train"
+
+final_model_path: checkpoints/stage1/stage1_epoch_84_loss_0.0222.pth
+
+PATCH_SIZE: 256
+
+BATCH_SIZE: 2
+NUM_WORKERS: 8
+
+LR: 0.0002
+EPOCHS: 120
+WEIGHT_DECAY: 0.0001
+
+W_CLEAN: 1.0
+W_BLUR: 0.3
+
+USE_AMP: true
+
+USE_EMA: true
+EMA_DECAY: 0.999
+
+CKPT_DIR: "checkpoints"
+RESUME: false
+RESUME_CKPT: null
+
+SEED: 42

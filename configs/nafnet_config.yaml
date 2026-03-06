@@ -1,0 +1,59 @@
+# ==================================================
+# Stage-2 NAFNet Refiner Configuration (Fine-Tuning)
+# ==================================================
+
+# Reproducibility
+SEED: 42
+DEVICE: cuda
+
+# --------------------------------------------------
+# Data paths
+# --------------------------------------------------
+TRAIN_STAGE1_DIR: data/stage1/train
+TRAIN_GT_DIR: data/gt/train
+
+VAL_STAGE1_DIR: data/stage1/val
+VAL_GT_DIR: data/gt/val
+
+# Pre-trained model path
+final_model_path: checkpoints/stage2_day/best_day_expert.pth
+
+# --------------------------------------------------
+# Dataset
+# --------------------------------------------------
+PATCH_SIZE: 256
+NUM_WORKERS: 4
+
+# --------------------------------------------------
+# Architecture (NAFNet-GoPro-width64)
+# --------------------------------------------------
+IMG_CHANNEL: 3
+WIDTH: 64
+ENC_BLK_NUMS: [1, 1, 1, 28]
+MIDDLE_BLK_NUM: 1
+DEC_BLK_NUMS: [1, 1, 1, 1]
+
+# --------------------------------------------------
+# Training (Fine-Tuning Settings)
+# --------------------------------------------------
+BATCH_SIZE: 8
+NUM_EPOCHS: 80
+LR: 5.0e-5         # Lowered to protect pre-trained weights
+WEIGHT_DECAY: 1.0e-4
+GRAD_CLIP: 1.0
+
+# --------------------------------------------------
+# Loss
+# --------------------------------------------------
+EDGE_WEIGHT: 0.0   # Disabled so model focuses purely on PSNR right now
+
+# --------------------------------------------------
+# Scheduler
+# --------------------------------------------------
+MIN_LR: 1.0e-6
+
+# --------------------------------------------------
+# Checkpoints
+# --------------------------------------------------
+SAVE_DIR: checkpoints/stage2
+SAVE_BEST_ONLY: true
