@@ -36,8 +36,8 @@ Luminance ≤ 65.0 → NIGHT-EXPERT NAFNet
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/raindrop-clarity.git
-cd raindrop-clarity
+git clone https://github.com/abhishek-3740/NTIRE_Raindrop_Clarity.git
+cd NTIRE_Raindrop_Clarity
 ```
 
 ### Step 2: Create Virtual Environment
